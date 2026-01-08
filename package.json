@@ -1,0 +1,11 @@
+{
+  "name": "pencil-case",
+  "description": "An npm package for ANSI styling",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "type": "module",
+  "dependencies": {
+    "typescript": "^5.9.3"
+  }
+}
