@@ -65,31 +65,31 @@ class Pencil extends Function {
     this._value = code;
     Object.defineProperties(this, {
       black: {
-        get: () => new Pencil("\x1b[30m")
+        get: () => new Pencil(this._value + "\x1b[30m")
       },
       red: {
-        get: () => new Pencil("\x1b[31m")
+        get: () => new Pencil(this._value + "\x1b[31m")
       },
       green: {
-        get: () => new Pencil("\x1b[32m")
+        get: () => new Pencil(this._value + "\x1b[32m")
       },
       yellow: {
-        get: () => new Pencil("\x1b[33m")
+        get: () => new Pencil(this._value + "\x1b[33m")
       },
       blue: {
-        get: () => new Pencil("\x1b[34m")
+        get: () => new Pencil(this._value + "\x1b[34m")
       },
       magenta: {
-        get: () => new Pencil("\x1b[35m")
+        get: () => new Pencil(this._value + "\x1b[35m")
       },
       cyan: {
-        get: () => new Pencil("\x1b[36m")
+        get: () => new Pencil(this._value + "\x1b[36m")
       },
       white: {
-        get: () => new Pencil("\x1b[37m")
+        get: () => new Pencil(this._value + "\x1b[37m")
       },
       regular: {
-        get: () => new Pencil("\x1b[39m")
+        get: () => new Pencil(this._value + "\x1b[39m")
       },
     });
   }
