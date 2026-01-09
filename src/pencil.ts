@@ -118,6 +118,36 @@ class Pencil extends String {
    * This property is also callable due to the `String` class having a `bold` method.
    */
   bold: Pencil & typeof String.prototype.bold;
+  /**
+   * Dim text
+   * 
+   * Raw value: `[2m`
+   */
+  dim: Pencil;
+  /**
+   * Italic text
+   * 
+   * Raw value: `[3m`
+   */
+  italic: Pencil;
+  /**
+   * Underlined text
+   * 
+   * Raw value: `[4m`
+   */
+  underlined: Pencil;
+  /**
+   * Blinking text
+   * 
+   * Raw value: `[5m`
+   */
+  blinking: Pencil;
+  /**
+   * Strikethrough text
+   * 
+   * Raw value: `[9m`
+   */
+  strikethrough: Pencil;
 
   public constructor(
     /**
@@ -197,6 +227,21 @@ class Pencil extends String {
           bold[Symbol.for("nodejs.util.inspect.custom")] = bold.toString;
           return bold;
         }
+      },
+      dim: {
+        get: () => new Pencil(this._value + "\x1b[2m")
+      },
+      italic: {
+        get: () => new Pencil(this._value + "\x1b[3m")
+      },
+      underlined: {
+        get: () => new Pencil(this._value + "\x1b[4m")
+      },
+      blinking: {
+        get: () => new Pencil(this._value + "\x1b[5m")
+      },
+      strikethrough: {
+        get: () => new Pencil(this._value + "\x1b[9m")
       }
     });
   }
@@ -342,16 +387,56 @@ const whiteBg = new Pencil("\x1b[47m");
  * Raw value: `[49m`
  */
 const regularBg = new Pencil("\x1b[49m");
+/**
+ * Bold text
+ * 
+ * Raw value: `[1m`
+ */
+const bold = new Pencil("\x1b[1m");
+/**
+ * Dim text
+ * 
+ * Raw value: `[2m`
+ */
+const dim = new Pencil("\x1b[2m");
+/**
+ * Italic text
+ * 
+ * Raw value: `[3m`
+ */
+const italic = new Pencil("\x1b[3m");
+/**
+ * Underlined text
+ * 
+ * Raw value: `[4m`
+ */
+const underlined = new Pencil("\x1b[4m");
+/**
+ * Blinking text
+ * 
+ * Raw value: `[5m`
+ */
+const blinking = new Pencil("\x1b[5m");
+/**
+ * Strikethrough text
+ * 
+ * Raw value: `[9m`
+ */
+const strikethrough = new Pencil("\x1b[9m");
 
 export {
   black,
   blackBg,
+  blinking,
   blue,
   blueBg,
+  bold,
   cyan,
   cyanBg,
+  dim,
   green,
   greenBg,
+  italic,
   magenta,
   magentaBg,
   Pencil,
@@ -359,6 +444,8 @@ export {
   redBg,
   regular,
   regularBg,
+  strikethrough,
+  underlined,
   white,
   whiteBg,
   yellow,
