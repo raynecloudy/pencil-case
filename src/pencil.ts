@@ -54,6 +54,60 @@ class Pencil extends Function {
    * Raw value: `[39m`
    */
   regular: Pencil;
+  /**
+   * Black background
+   * 
+   * Raw value: `[40m`
+   */
+  blackBg: Pencil;
+  /**
+   * Red background
+   * 
+   * Raw value: `[41m`
+   */
+  redBg: Pencil;
+  /**
+   * Green background
+   * 
+   * Raw value: `[42m`
+   */
+  greenBg: Pencil;
+  /**
+   * Yellow background
+   * 
+   * Raw value: `[43m`
+   */
+  yellowBg: Pencil;
+  /**
+   * Blue background
+   * 
+   * Raw value: `[44m`
+   */
+  blueBg: Pencil;
+  /**
+   * Magenta/purple background
+   * 
+   * Raw value: `[45m`
+   */
+  magentaBg: Pencil;
+  /**
+   * Cyan background
+   * 
+   * Raw value: `[46m`
+   */
+  cyanBg: Pencil;
+  /**
+   * White background
+   * 
+   * Raw value: `[47m`
+   */
+  whiteBg: Pencil;
+  /**
+   * Default background
+   * 
+   * Raw value: `[49m`
+   */
+  regularBg: Pencil;
 
   constructor(
     /**
@@ -91,6 +145,33 @@ class Pencil extends Function {
       regular: {
         get: () => new Pencil(this._value + "\x1b[39m")
       },
+      blackBg: {
+        get: () => new Pencil(this._value + "\x1b[40m")
+      },
+      redBg: {
+        get: () => new Pencil(this._value + "\x1b[41m")
+      },
+      greenBg: {
+        get: () => new Pencil(this._value + "\x1b[42m")
+      },
+      yellowBg: {
+        get: () => new Pencil(this._value + "\x1b[43m")
+      },
+      blueBg: {
+        get: () => new Pencil(this._value + "\x1b[44m")
+      },
+      magentaBg: {
+        get: () => new Pencil(this._value + "\x1b[45m")
+      },
+      cyanBg: {
+        get: () => new Pencil(this._value + "\x1b[46m")
+      },
+      whiteBg: {
+        get: () => new Pencil(this._value + "\x1b[47m")
+      },
+      regularBg: {
+        get: () => new Pencil(this._value + "\x1b[49m")
+      }
     });
   }
 
@@ -160,16 +241,79 @@ const white = new Pencil("\x1b[37m");
  * Raw value: `[39m`
  */
 const regular = new Pencil("\x1b[39m");
+/**
+ * Black background
+ * 
+ * Raw value: `[40m`
+ */
+const blackBg = new Pencil("\x1b[40m");
+/**
+ * Red background
+ * 
+ * Raw value: `[41m`
+ */
+const redBg = new Pencil("\x1b[41m");
+/**
+ * Green background
+ * 
+ * Raw value: `[42m`
+ */
+const greenBg = new Pencil("\x1b[42m");
+/**
+ * Yellow background
+ * 
+ * Raw value: `[43m`
+ */
+const yellowBg = new Pencil("\x1b[43m");
+/**
+ * Blue background
+ * 
+ * Raw value: `[44m`
+ */
+const blueBg = new Pencil("\x1b[44m");
+/**
+ * Magenta/purple background
+ * 
+ * Raw value: `[45m`
+ */
+const magentaBg = new Pencil("\x1b[45m");
+/**
+ * Cyan background
+ * 
+ * Raw value: `[46m`
+ */
+const cyanBg = new Pencil("\x1b[46m");
+/**
+ * White background
+ * 
+ * Raw value: `[47m`
+ */
+const whiteBg = new Pencil("\x1b[47m");
+/**
+ * Default background
+ * 
+ * Raw value: `[49m`
+ */
+const regularBg = new Pencil("\x1b[49m");
 
 export {
   black,
+  blackBg,
   blue,
+  blueBg,
   cyan,
+  cyanBg,
   green,
+  greenBg,
   magenta,
+  magentaBg,
   Pencil,
   red,
+  redBg,
   regular,
+  regularBg,
   white,
-  yellow
+  whiteBg,
+  yellow,
+  yellowBg
 };

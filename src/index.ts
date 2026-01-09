@@ -1,14 +1,43 @@
-import { black, blue, cyan, green, magenta, Pencil, red, regular, white, yellow } from "./pencil.js";
+import {
+  black,
+  blackBg,
+  blue,
+  blueBg,
+  cyan,
+  cyanBg,
+  green,
+  greenBg,
+  magenta,
+  magentaBg,
+  Pencil,
+  red,
+  redBg,
+  regular,
+  regularBg,
+  white,
+  whiteBg,
+  yellow,
+  yellowBg
+} from "./pencil.js";
 
 export {
   black,
+  blackBg,
   blue,
+  blueBg,
   cyan,
+  cyanBg,
   green,
+  greenBg,
   magenta,
+  magentaBg,
   Pencil,
   red,
+  redBg,
   regular,
+  regularBg,
   white,
-  yellow
+  whiteBg,
+  yellow,
+  yellowBg
 };
