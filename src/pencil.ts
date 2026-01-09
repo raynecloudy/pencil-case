@@ -1,4 +1,4 @@
-class Pencil extends Function {
+class Pencil extends String {
   private _value: string;
   /**
    * Black foreground
@@ -115,7 +115,7 @@ class Pencil extends Function {
      */
     code: string
   ) {
-    super();
+    super(code);
     this._value = code;
     Object.defineProperties(this, {
       black: {
