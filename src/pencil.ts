@@ -110,6 +110,14 @@ class Pencil extends String {
    * Raw value: `[49m`
    */
   regularBg: Pencil;
+  /**
+   * Bold text
+   * 
+   * Raw value: `[1m`
+   * 
+   * This property is also callable due to the `String` class having a `bold` method.
+   */
+  bold: Pencil & typeof String.prototype.bold;
 
   public constructor(
     /**
@@ -181,6 +189,14 @@ class Pencil extends String {
       },
       regularBg: {
         get: () => new Pencil(this._value + "\x1b[49m")
+      },
+      bold: {
+        get: () => {
+          const bold = this.toString().bold;
+          bold.toString = () => "\x1b[1m";
+          bold[Symbol.for("nodejs.util.inspect.custom")] = bold.toString;
+          return bold;
+        }
       }
     });
   }
