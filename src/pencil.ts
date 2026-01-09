@@ -1,3 +1,5 @@
+type Numberish = number | `${number}`;
+
 class Pencil extends String {
   private _value: string;
   /**
@@ -109,12 +111,20 @@ class Pencil extends String {
    */
   regularBg: Pencil;
 
-  constructor(
+  public constructor(
     /**
      * The value to return when `toString` is called.
      */
     code: string
-  ) {
+  );
+  public constructor(
+    red: Numberish,
+    green: Numberish,
+    blue: Numberish,
+    background?: boolean
+  );
+  constructor(...args: any[]) {
+    const code = [3, 4].includes(args.length) ? `\x1b[${(args[4] ?? false) ? 4 : 3}8;2;${args[0]};${args[1]};${args[2]}m` : args[0];
     super(code);
     this._value = code;
     Object.defineProperties(this, {
@@ -173,6 +183,27 @@ class Pencil extends String {
         get: () => new Pencil(this._value + "\x1b[49m")
       }
     });
+  }
+
+  custom(pencil: Pencil): Pencil;
+  custom(
+    red: Numberish,
+    green: Numberish,
+    blue: Numberish,
+    background?: boolean
+  ): Pencil;
+  custom(...args: any[]): Pencil {
+    return [3, 4].includes(args.length) ? new Pencil(`${this._value}\x1b[${(args[4] ?? false) ? 4 : 3}8;2;${args[0]};${args[1]};${args[2]}m`) : args[0];
+  }
+
+  customBg(pencil: Pencil): Pencil;
+  customBg(
+    red: Numberish,
+    green: Numberish,
+    blue: Numberish
+  ): Pencil;
+  customBg(...args: any[]): Pencil {
+    return args.length === 3 ? new Pencil(`${this._value}\x1b[48;2;${args[0]};${args[1]};${args[2]}m`) : args[0];
   }
 
   [Symbol.for("nodejs.util.inspect.custom")]() {
